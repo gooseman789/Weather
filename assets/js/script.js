@@ -1,5 +1,6 @@
 var searchBTN = $('#search');
 var inputEL = $('#citySearch');
+var listBTNS = $('#list');
 
 
 searchBTN.on('click', function() {
@@ -31,25 +32,30 @@ searchBTN.on('click', function() {
         })
         .then(function (data1){
             var weatherLIST = data1.list 
-            console.log(weatherLIST)
             var weatherAR = []
             for (let i = 0; i < weatherLIST.length; i=i+8) {
                 weatherAR.push(weatherLIST[i])
             }
-            console.log(weatherAR)
-            var citysky = weatherAR[0].weather[0].description
-            var citytemp = weatherAR[0].main.temp
-            var cityHUM = weatherAR[0].main.humidity
-            var citywind = weatherAR[0].wind.speed
-            console.log(citysky)
-            console.log(citytemp)
-            console.log(cityHUM)
-            console.log(citywind)
 
-
-            
+            for (let i =0; i < weatherAR.length; i++) {
+                var citysky = weatherAR[i].weather[0].description
+                var citytemp = weatherAR[i].main.temp
+                var cityHUM = weatherAR[i].main.humidity
+                var citywind = weatherAR[i].wind.speed
+                var elementID = '5day' + (i+1)
+                $('#' + elementID).addClass('dark')
+                $('#' + elementID).children('.temp').text("Temp: " + citytemp)
+                $('#' + elementID).children('.wind').text("Wind speed: " + citywind + "MPH")
+                $('#' + elementID).children('.humidity').text("Humidity: " + cityHUM + "%")
+            }   
         })
     })
+    var pastBTN = $('<button>' + inputEL.val() + '</button>');
+    pastBTN.addClass("past")
+    pastBTN.on('click', function () {
+
+    })
+    listBTNS.append(pastBTN)
 })
 
 
