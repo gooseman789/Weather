@@ -4,7 +4,6 @@
 ![Alt text](assets\Weather App.pdf)
 
 
-
 # Description
 My motivation for making this project was to better understand how to work with jquery and local storage working in conjuction with API calls.
 I made this to show my understanding of these topics as well as practice different aspects of the fetch functions.  
@@ -22,3 +21,6 @@ This is my own work with help and research made from the internet.
 
 # License
 I used the MIT license.
+
+# Deployed link
+https://gooseman789.github.io/Weather/ 
