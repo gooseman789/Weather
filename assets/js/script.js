@@ -1,7 +1,7 @@
 var searchBTN = $('#search');
 var listBTNS = $('#list');
 
-
+//this is the main first fetch.  To receive the latitude and longitude of the searched city.  
 searchBTN.on('click', function() {
     var inputEL = $('#citySearch');
     fetch('http://api.openweathermap.org/geo/1.0/direct?q=' + inputEL.val() + '&limit=1&appid=b364c079aaefaadfbc5f1d3a45eebea4', {
@@ -11,6 +11,7 @@ searchBTN.on('click', function() {
         return response.json();
     })
     .then(function (data) {
+        //this is to create the header with the name of the city, or to just change the name of the city if the h1 tag already exists
         if (!$('.center').length) {
         var extradiv = $('<div>')
         extradiv.addClass('center')
@@ -23,6 +24,7 @@ searchBTN.on('click', function() {
         else {
             $('.centertext').text(inputEL.val())
         }
+        //this is putting the city name, and the lat and lon into local storage
         var coordsAR = [];
         coordsAR.push(data[0].lat);
         coordsAR.push(data[0].lon);
@@ -33,6 +35,8 @@ searchBTN.on('click', function() {
         var cityLAT = cityAR[0]
         var cityLON = cityAR[1]
 
+
+        //this fetch is to use this to get the current weather of the city.
         fetch('https://api.openweathermap.org/data/2.5/weather?lat=' + cityLAT + '&lon=' + cityLON + '&appid=b364c079aaefaadfbc5f1d3a45eebea4&units=imperial', {
 
         })
@@ -53,7 +57,7 @@ searchBTN.on('click', function() {
         })
 
 
-
+//this is to get the 5 day forecast of the city
         fetch('http://api.openweathermap.org/data/2.5/forecast?lat=' + cityLAT + '&lon=' + cityLON + '&appid=b364c079aaefaadfbc5f1d3a45eebea4&units=imperial', {
 
         })
@@ -82,6 +86,8 @@ searchBTN.on('click', function() {
             }   
         })
     })
+
+    //this creates a button for the past searches. It also is almost a complete copy and paste of the code above with minor tweaks for the different functionality that was not needed from the above functions
     var pastBTN = $('<button>' + inputEL.val() + '</button>');
     pastBTN.addClass("past")
     pastBTN.on('click', function () {
