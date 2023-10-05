@@ -6,6 +6,15 @@ header {
     margin-bottom: 1%;
     font-size: 300%;
 }
+input {
+    display: flex;
+    margin: 4% auto;
+}
+
+#search {
+    background-color: black;
+    color: antiquewhite;
+}
 
 #title {
     display: flex;
@@ -30,6 +39,7 @@ article {
     flex: 1 0 10%;
     margin: 1%;
 }
+
 
 #list {
     border-top: solid gray 1px;
@@ -79,7 +89,20 @@ section > div{
 }
 
 main > div {
+    display: flex;
+    flex-direction: row;
     border: solid black 2px;
+    padding: 2%;
+}
+#left {
+    display: block;
+    flex: 1 0 25%;
+}
+
+#inner{
+    display: block;
+    flex: 1 0 60%;
+    padding: 0 5%;
 }
 
 h2 {
