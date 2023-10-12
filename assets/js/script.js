@@ -4,7 +4,7 @@ var listBTNS = $('#list');
 //this is the main first fetch.  To receive the latitude and longitude of the searched city.  
 searchBTN.on('click', function() {
     var inputEL = $('#citySearch');
-    fetch('http://api.openweathermap.org/geo/1.0/direct?q=' + inputEL.val() + '&limit=1&appid=b364c079aaefaadfbc5f1d3a45eebea4', {
+    fetch('https://api.openweathermap.org/geo/1.0/direct?q=' + inputEL.val() + '&limit=1&appid=b364c079aaefaadfbc5f1d3a45eebea4', {
 
     })
     .then(function (response) {
@@ -58,7 +58,7 @@ searchBTN.on('click', function() {
 
 
 //this is to get the 5 day forecast of the city
-        fetch('http://api.openweathermap.org/data/2.5/forecast?lat=' + cityLAT + '&lon=' + cityLON + '&appid=b364c079aaefaadfbc5f1d3a45eebea4&units=imperial', {
+        fetch('https://api.openweathermap.org/data/2.5/forecast?lat=' + cityLAT + '&lon=' + cityLON + '&appid=b364c079aaefaadfbc5f1d3a45eebea4&units=imperial', {
 
         })
         .then(function (response2) {
@@ -92,7 +92,7 @@ searchBTN.on('click', function() {
     pastBTN.addClass("past")
     pastBTN.on('click', function () {
         var pastINPUT = $(this).text()
-        fetch('http://api.openweathermap.org/geo/1.0/direct?q=' + pastINPUT + '&limit=1&appid=b364c079aaefaadfbc5f1d3a45eebea4', {
+        fetch('https://api.openweathermap.org/geo/1.0/direct?q=' + pastINPUT + '&limit=1&appid=b364c079aaefaadfbc5f1d3a45eebea4', {
 
     })
     .then(function (response) {
@@ -131,7 +131,7 @@ searchBTN.on('click', function() {
 
 
 
-        fetch('http://api.openweathermap.org/data/2.5/forecast?lat=' + cityLAT + '&lon=' + cityLON + '&appid=b364c079aaefaadfbc5f1d3a45eebea4&units=imperial', {
+        fetch('https://api.openweathermap.org/data/2.5/forecast?lat=' + cityLAT + '&lon=' + cityLON + '&appid=b364c079aaefaadfbc5f1d3a45eebea4&units=imperial', {
 
         })
         .then(function (response2) {
