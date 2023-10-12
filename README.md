@@ -1,7 +1,7 @@
 # Weather
 
 
-![Alt text](assets\Weather App.pdf)
+![Alt text](/Weather%20App.pdf)
 
 
 # Description
